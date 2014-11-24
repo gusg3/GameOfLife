@@ -11,7 +11,7 @@ public class GameOfLife {
 
 	}
 
-	public void asignarCelulasVivas(final List<Celula> listaCelulasVivas) {
+	public void asignarCelulasIniciales(final List<Celula> listaCelulasVivas) {
 		for (Celula celulaActual : listaCelulasVivas) {
 			tablero.agregarCelulaViva(celulaActual);
 		}

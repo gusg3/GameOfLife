@@ -18,22 +18,22 @@ public class GameOfLifeTest {
 	}
 
 	@Test
-	public void dadoUnJuego_puedoAsignarTamanioTablero_puedoAsignarCelulasVivas_puedoHacerCorridas_puedoVerificarCelulaViva() {
-		juego.asignarCelulasVivas(crearUnaCelulaVivaSinVecinos(3, 3));
+	public void dadoUnJuego_puedoAsignarCelulasIniciales_puedoHacerCorridas_puedoVerificarCelulaViva() {
+		juego.asignarCelulasIniciales(crearUnaCelulaVivaSinVecinos(3, 3));
 		Tablero tableroResultante = juego.hacerCorridas(1);
 		tableroResultante.hayCelulaViva(3, 3);
 	}
 
 	@Test
 	public void dadoUnJuegoConUnaCelulaSinVecinos_dichaCelulaDebeMorir() {
-		juego.asignarCelulasVivas(crearUnaCelulaVivaSinVecinos(3, 3));
+		juego.asignarCelulasIniciales(crearUnaCelulaVivaSinVecinos(3, 3));
 		Tablero tableroResultante = juego.hacerCorridas(1);
 		Assert.assertFalse(tableroResultante.hayCelulaViva(3, 3));
 	}
 
 	@Test
 	public void dadoUnJuegoConUnaCelulaConDosVecinos_dichaCelulaDebeVivir() {
-		juego.asignarCelulasVivas(crearCelulaVivaConDosVecinas(3, 3));
+		juego.asignarCelulasIniciales(crearCelulaVivaConDosVecinas(3, 3));
 		Tablero tableroResultante = juego.hacerCorridas(1);
 		Assert.assertTrue(tableroResultante.hayCelulaViva(3, 3));
 	}
