@@ -25,30 +25,30 @@ public class GameOfLifeTest {
 	}
 
 	@Test
-	public void dadoUnJuegoConUnaCelulaSinVecinos_dichaCelulaDebeMorir() {
+	public void dadoUnJuego_conUnaCelulaSinVecinos_dichaCelulaDebeMorir() {
 		juego.asignarCelulasIniciales(crearUnaCelulaVivaSinVecinos(3, 3));
 		Tablero tableroResultante = juego.hacerCorridas(1);
 		Assert.assertFalse(tableroResultante.hayCelulaViva(3, 3));
 	}
 
 	@Test
-	public void dadoUnJuegoConUnaCelulaConDosVecinos_dichaCelulaDebeVivir() {
+	public void dadoUnJuego_conUnaCelulaConDosVecinos_dichaCelulaDebeVivir() {
 		juego.asignarCelulasIniciales(crearCelulaVivaConDosVecinas(3, 3));
 		Tablero tableroResultante = juego.hacerCorridas(1);
 		Assert.assertTrue(tableroResultante.hayCelulaViva(3, 3));
 	}
 
-	private List<Celula> crearCelulaVivaConDosVecinas(final int x, final int y) {
+	private List<Celula> crearUnaCelulaVivaSinVecinos(final int x, final int y) {
 		List<Celula> lista = new ArrayList<Celula>();
-		lista.add(new Celula(x - 1, y - 1));
-		lista.add(new Celula(x, y - 1));
-		lista.add(new Celula(x - 1, y));
+		lista.add(new Celula(x, y));
 		return lista;
 	}
 
-	private List<Celula> crearUnaCelulaVivaSinVecinos(final int x, final int y) {
+	private List<Celula> crearCelulaVivaConDosVecinas(final int x, final int y) {
 		List<Celula> lista = new ArrayList<Celula>();
-		lista.add(new Celula(x - 1, y - 1));
+		lista.add(new Celula(x, y));
+		lista.add(new Celula(x, y - 1));
+		lista.add(new Celula(x - 1, y));
 		return lista;
 	}
 

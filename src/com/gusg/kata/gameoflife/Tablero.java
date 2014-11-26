@@ -1,18 +1,36 @@
 package com.gusg.kata.gameoflife;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Tablero {
 
-	private boolean[][] areaJuego;
+	private int tamanioX;
+
+	private int tamanioY;
+
+	private Map<String, Celula> celulasVivas;
 
 	public Tablero(final int x, final int y) {
-		areaJuego = new boolean[x][y];
+		this.tamanioX = x;
+		this.tamanioY = y;
+		this.celulasVivas = new HashMap<String, Celula>();
 	}
 
 	public boolean hayCelulaViva(final int x, final int y) {
-		return areaJuego[x][y];
+		return celulasVivas.containsKey(toKey(x, y));
 	}
 
 	public void agregarCelulaViva(final Celula celulaActual) {
-		areaJuego[celulaActual.getPosicionX()][celulaActual.getPosicionY()] = true;
+		celulasVivas.put(getKey(celulaActual), celulaActual);
+	}
+
+	private String getKey(Celula celulaActual) {
+		return Integer.toString(celulaActual.getPosicionX()).concat(
+				Integer.toString(celulaActual.getPosicionY()));
+	}
+
+	private String toKey(int x, int y) {
+		return Integer.toString(x).concat(Integer.toString(y));
 	}
 }

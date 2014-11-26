@@ -18,6 +18,10 @@ public class GameOfLife {
 	}
 
 	public Tablero hacerCorridas(final int i) {
+		//obtener lista de celulas vivas
+		//aplicar i corridas (reglas de negocio para cada celula)
+		//retonar tablero resultante
+		
 		return tablero;
 	}
 
